@@ -8,7 +8,7 @@ function App() {
   const dispatch=useDispatch()
   return (
     <div className="App">
-      {comedies}
+      <img src={comedies}/>
       <div>
         <button onClick={()=>dispatch(VadiveluComedyAction())}>VadiveluComedy</button> &nbsp;
         <button onClick={()=>dispatch(CoundamaniComedyAction())}>CoundamaniComedy</button>
