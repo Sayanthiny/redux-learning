@@ -1,6 +1,6 @@
 import './App.css';
 import {useSelector,useDispatch} from 'react-redux'
-import {VadiveluComedyAction,CoundamaniComedyAction} from './index'
+import {VadiveluComedyAction,CoundamaniComedyAction,SubscribeChannelAction} from './index'
 // import { connect } from 'react-redux'
 
 function App() {
@@ -8,10 +8,12 @@ function App() {
   const dispatch=useDispatch()
   return (
     <div className="App">
-      <img src={comedies}/>
+      <p>{comedies.isSubscribed ? 'true' :'false'}</p>
+      <img src={comedies.img}/>
       <div>
-        <button onClick={()=>dispatch(VadiveluComedyAction())}>VadiveluComedy</button> &nbsp;
-        <button onClick={()=>dispatch(CoundamaniComedyAction())}>CoundamaniComedy</button>
+        <button disabled={!comedies.isSubscribed} onClick={()=>dispatch(VadiveluComedyAction())}>VadiveluComedy</button> &nbsp;
+        <button disabled={!comedies.isSubscribed} onClick={()=>dispatch(CoundamaniComedyAction())}>CoundamaniComedy</button>&nbsp;
+        <button onClick={()=>dispatch(SubscribeChannelAction())}>{!comedies.isSubscribed ? 'Subscribe' : 'unSubscribe'}</button>
       </div>
     </div>
   );
