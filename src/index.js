@@ -43,11 +43,13 @@ const initialState={
       }
       
       default:
-        return state;
+        return{
+          ...state
+        }
     }
   }
 
-const store=createStore(comedyReducer)
+let store=createStore(comedyReducer)
 // store.subscribe(()=>{console.log(store.getState())})
 // store.dispatch(VadiveluComedyAction())
 // store.dispatch(CoundamaniComedyAction())
